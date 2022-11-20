@@ -45,7 +45,8 @@ stop:
 	@-pkill -SIGTERM -f "./${FRONT_END_BINARY}"
 	@echo "Stopped front end!"
 
-## stop_windows: stop the front end (windows)
+## stop_windows: stop the front end (windows) (windows cmd only)
+## taskkill is a windows cmd
 stop_windows:
 	@echo "Stopping front end..."
 	@taskkill /IM "${FRONT_END_BINARY}" /F
