@@ -38,4 +38,6 @@ main
 tmp
 vendor
 /db-data/
+
+# iml file
 *.iml
