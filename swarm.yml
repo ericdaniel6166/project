@@ -5,15 +5,13 @@ version: '3'
 
 services:
   broker-service:
-    image: eric6166/broker-service:1.0.0
-    ports:
-      - "8080:80"
+    image: eric6166/broker-service:1.0.1
     deploy:
       mode: replicated
       replicas: 1
 
   logger-service:
-    image: eric6166/logger-service:1.0.0
+    image: eric6166/logger-service:1.0.1
     deploy:
       mode: replicated
       replicas: 1
