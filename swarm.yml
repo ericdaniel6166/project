@@ -18,7 +18,7 @@ services:
       - caddy_config:/caddy
 
   front-end:
-    image: eric6166/front-end:1.0.1
+    image: eric6166/front-end:1.0.0
     deploy:
       mode: replicated
       replicas: 1
@@ -68,7 +68,6 @@ services:
     image: 'postgres:14.2'
     ports:
       - "5432:5432"
-    restart: always
     deploy:
       mode: replicated
       replicas: 1
