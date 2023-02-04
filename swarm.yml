@@ -4,6 +4,19 @@ version: '3'
 # have to change the image: <name> part to whatever your image names are
 
 services:
+
+  caddy:
+    image: eric6166/micro-caddy:1.0.0
+    deploy:
+      mode: replicated
+      replicas: 1
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/caddy
+
   front-end:
     image: eric6166/front-end:1.0.1
     deploy:
@@ -90,3 +103,9 @@ services:
     image: 'rabbitmq:3.11-alpine'
     deploy:
       mode: global
+
+volumes:
+  caddy_data:
+    external: true
+  caddy_config:
+
