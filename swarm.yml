@@ -18,10 +18,12 @@ services:
       - caddy_config:/caddy
 
   front-end:
-    image: eric6166/front-end:1.0.0
+    image: eric6166/front-end:1.0.1
     deploy:
       mode: replicated
       replicas: 1
+    environment:
+      BROKER_URL: "http://backend"
 
   broker-service:
     image: eric6166/broker-service:1.0.1
