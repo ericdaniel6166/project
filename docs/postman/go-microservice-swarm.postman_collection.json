@@ -1,0 +1,369 @@
+{
+	"info": {
+		"_postman_id": "24c8e2f0-32fe-440d-afed-68896208f304",
+		"name": "go-microservice-swarm",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13249139"
+	},
+	"item": [
+		{
+			"name": "Prepare Copy",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.environment.set(\"url\",\"http://backend\");\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://postman-echo.com/get",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "broker ping Copy",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"domain\",\"http://localhost\")"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/ping",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"ping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "broker log Copy",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"domain\",\"http://localhost\")"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"action\": \"log\",\r\n    \"log\": {\r\n        \"name\": \"event\",\r\n        \"data\": \"Some kind of data\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/handle",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"handle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "broker log Copy 2",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"domain\",\"http://localhost\")"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"action\": \"log\",\r\n    \"log\": {\r\n        \"name\": \"ABC event\",\r\n        \"data\": \"ABC data\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/handle",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"handle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "log-grpc Copy",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"domain\",\"http://localhost\")"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"action\": \"log\",\r\n    \"log\": {\r\n        \"name\": \"gRPC ABC event\",\r\n        \"data\": \"gRPC data\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/log-grpc",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"log-grpc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "broker mail Copy",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"domain\",\"http://localhost\")"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"action\": \"mail\",\r\n    \"mail\": {\r\n        \"from\": \"from@abc.com\",\r\n        \"to\": \"to@abc.com\",\r\n        \"subject\": \"abc subject\",\r\n        \"message\": \"abc message\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/handle",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"handle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "broker auth correct pass Copy",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"domain\",\"http://localhost\")"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"action\": \"auth\",\r\n    \"auth\": {\r\n        \"email\": \"admin@example.com\",\r\n        \"password\": \"verysecret\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/handle",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"handle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "broker auth wrong pass Copy",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"domain\",\"http://localhost\")"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// pm.test(\"Status code is 200\", function () {\r",
+							"//     pm.response.to.have.status(200);\r",
+							"// });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"action\": \"auth\",\r\n    \"auth\": {\r\n        \"email\": \"admin@example.com\",\r\n        \"password\": \"verysecret!\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/handle",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"handle"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

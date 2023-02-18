@@ -10,3 +10,7 @@
   - [mail-service](https://github.com/ericdaniel6166/mail-service)
 - Front-end
   - [front-end](https://github.com/ericdaniel6166/front-end)
+- Getting started
+  - [Running project using Docker Swarm](/docs/md/docker_swarm.md)
+  - [Running project using Kubernetes](/docs/md/kubernetes.md) (Updating)
+  - [Running project locally](/docs/md/locally.md) (Updating)
