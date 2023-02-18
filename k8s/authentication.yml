@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: authentication-service
-        image: "eric6166/authentication-service:1.0.0"
+        image: "eric6166/authentication-service:1.0.3"
         resources:
           requests:
             memory: "64Mi"

@@ -53,7 +53,7 @@ services:
       FROM_ADDRESS: john.smith@example.com
 
   authentication-service:
-    image: eric6166/authentication-service:1.0.0
+    image: eric6166/authentication-service:1.0.3
     deploy:
       mode: replicated
       replicas: 1

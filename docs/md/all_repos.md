@@ -1,7 +1,4 @@
-# project
-
-##### Index
-
+##### All repos
 - All backend microservice repositories
   - [authentication-service](https://github.com/ericdaniel6166/authentication-service)
   - [broker-service](https://github.com/ericdaniel6166/broker-service)
@@ -10,7 +7,3 @@
   - [mail-service](https://github.com/ericdaniel6166/mail-service)
 - Front-end
   - [front-end](https://github.com/ericdaniel6166/front-end)
-- Getting started
-  - [Running project local](/docs/md/local.md)
-  - [Running project using Docker Swarm](/docs/md/docker_swarm.md)
-  - [Running project using Kubernetes](/docs/md/kubernetes.md) (Updating)
