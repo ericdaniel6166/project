@@ -1,6 +1,6 @@
 ##### Building and pushing images to Docker Hub
 
-- Clone from all repos: [all_repos](all_repos.md) 
+- Clone from [all repos](all_repos.md) 
 - Building and pushing images to Docker Hub 
 <br>Ex:
 <br>docker build -f logger-service.dockerfile -t <dockerhub_id>/<image_name>:<tag_name> .
